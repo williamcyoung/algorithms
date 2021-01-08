@@ -1,6 +1,6 @@
 '''
 You have m types of coins available in infinite quantities,
-where the value of each coin is given in the array S=[S0, ..., Sm-1]
+where the value of each coin is given in the array coins=[1, ...]
 Can you determine the number of ways of making change for n units using
 the given types of coins?
 '''
@@ -19,3 +19,4 @@ def dp_count(N, coins):
                 ways[j] += ways[(int)(j - coins[i])]
     
     return ways[N]
+
