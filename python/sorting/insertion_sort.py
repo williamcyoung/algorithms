@@ -1,3 +1,7 @@
+'''
+Python implementation of insertion sort with a matplotlib visual included.
+'''
+
 import matplotlib.pyplot as plt
 import matplotlib.animation as anim
 
