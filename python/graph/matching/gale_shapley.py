@@ -53,7 +53,7 @@ for man in men:
 free_men = [m_1, m_2, m_3, m_4]
 women = [w_1, w_2, w_3, w_4]
 
-while free_men:
+while len(free_men) > 0:
     man = free_men.pop()
     if len(man.proposed) < len(women):
         w = man.unproposed[0]
@@ -62,6 +62,8 @@ while free_men:
         if w.free:
             man.match = w
             w.match = man
+            w.free = False
+            man.free = False
         else:
             # get w.match
             if w.preferences.index(w.match) < w.preferences.index(man):
@@ -69,8 +71,7 @@ while free_men:
                 continue
             # if index of w.match.name in w.preferences is 
             else:
-                free_men.append(w.match.match)
-                w.match.match = None
+                free_men.append(w.match)
                 man.match = w
                 w.match = man
 
