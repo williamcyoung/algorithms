@@ -9,30 +9,30 @@ func QuickSort(arr []int) []int {
 	if len(arr) <= 1 {
 		return arr
 	}
-	median := arr[rand.Intn(len(arr))]
+	pivot := arr[rand.Intn(len(arr))]
 
-	lowPart := make([]int, 0, len(arr))
-	highPart := make([]int, 0, len(arr))
-	middlePart := make([]int, 0, len(arr))
+	low := make([]int, 0, len(arr))
+	high := make([]int, 0, len(arr))
+	mid := make([]int, 0, len(arr))
 
 	for _, item := range arr {
 		switch {
-		case item < median:
-			lowPart = append(lowPart, item)	
-		case item == median:
-			middlePart = append(middlePart, item)
-		case item > median:
-			highPart = append(highPart, item)
+			case item < pivot:
+				low = append(low, item)	
+			case item == pivot:
+				mid = append(mid, item)
+			case item > pivot:
+				high = append(high, item)
 		}
 	}
 
-	lowPart = QuickSort(lowPart)
-	highPart = QuickSort(highPart)
+	low = QuickSort(low)
+	high = QuickSort(high)
 
-	lowPart = append(lowPart, middlePart...)
-	lowPart = append(lowPart, highPart...)
+	low = append(low, mid...)
+	low = append(low, high...)
 	
-	return lowPart
+	return low
 }
 
 func main() {
