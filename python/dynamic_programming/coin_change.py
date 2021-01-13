@@ -19,3 +19,4 @@ def dp_count(N, coins):
                 ways[j] += ways[(int)(j - coins[i])]
     
     return ways[N]
+
